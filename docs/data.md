@@ -9,10 +9,14 @@
 | `observation_id` | str | 必填 |
 | `site` | str | 必填 |
 | `region` | str | 必填 |
-| `week` | int | 允许空值，空值不是零 |
+| `week` | int | 必填 |
 | `consumption` | float | 必填 |
-| `output` | float | 允许空值，空值不是零 |
-| `adopt_week` | int | 允许空值，空值不是零 |
-| `temperature` | float | 允许空值，空值不是零 |
+| `output` | float | 必填 |
+| `adopt_week` | int | 必填 |
+| `temperature` | float | 必填 |
 
 时间字段 day、week、tick、hour、minute、cycle、start_day、reported_day、known_at、visible_at、opened、observed 均以各字段名所述的相对时间单位表示整数；不同字段并不必然代表同一种时间。缺少的登记码与浓度等信息保持为空。示例只表达产品数据结构，不能代替实际调查资料。
+
+## 业务字段语义
+
+consumption 为千瓦时，output 为产出件数，temperature 为摄氏度。adopt_week=-1 表示从未改造，否则为首次采用周；site 在 week 观察，region 是当前数据所属区域。
